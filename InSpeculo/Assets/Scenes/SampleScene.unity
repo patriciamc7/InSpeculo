@@ -355,6 +355,7 @@ MonoBehaviour:
   SensX: 100
   SensY: 100
   orientation: {fileID: 1570531846}
+  player: {fileID: 1319831580}
   smoothTime: 0
   currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
@@ -601,7 +602,7 @@ MonoBehaviour:
   groundDrag: 1
   jumpForce: 12
   jumpCooldown: 0.25
-  airMultiplier: 0.2
+  airMultiplier: 0.1
   walkSpeed: 0
   sprintSpeed: 0
   jumpKey: 32

@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour
     public float SensY;
 
     public Transform orientation;
+    public Transform player;
 
     public float smoothTime;
     public Vector3 currentVelocity; 
@@ -15,6 +16,7 @@ public class CameraMovement : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    bool isBackwards = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,10 +48,18 @@ public class CameraMovement : MonoBehaviour
 
     void rotatePersonage(float horizontalvertical)
     {
-        if (horizontalvertical < 0)
+        if (horizontalvertical < 0 && isBackwards)
         {
+            isBackwards = false;
             transform.Rotate(0, 180, 0);
-            transform.position = Vector3.SmoothDamp(transform.position, orientation.position - new Vector3(0, -1, -3), ref currentVelocity, smoothTime);
+            player.Rotate(0, 180, 0);
+        }
+        else if (horizontalvertical < 0 && !isBackwards)
+        {
+            isBackwards = true;
+            transform.Rotate(0, 180, 0);
+            player.Rotate(0, 180, 0);
+            //transform.position = Vector3.SmoothDamp(transform.position, orientation.position - new Vector3(0, -1, -3), ref currentVelocity, smoothTime);
         }
     }
 }
