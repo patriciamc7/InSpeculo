@@ -19,8 +19,6 @@ public class MoveCamera : MonoBehaviour
     {
         float horizontalvertical = Input.GetAxisRaw("Vertical");
 
-        
-
         float mouseX = Input.GetAxisRaw("Mouse X") + Time.deltaTime * sens;
         float mouseY = Input.GetAxisRaw("Mouse Y") + Time.deltaTime * sens;
 
@@ -29,7 +27,7 @@ public class MoveCamera : MonoBehaviour
         {
             mouseY = mouseY * 1; 
         }
-            xRotation -= mouseY;
+        xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); 
